@@ -1,0 +1,35 @@
+{
+  "name": "movement-passs-foundation-stacks",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write ./",
+    "lint": "eslint ./ --fix",
+    "bootstrap": "cdk bootstrap --profile movement-pass",
+    "deploy": "cdk deploy movement-pass-configuration-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-certificates-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-jwt-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-photos-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-database-v1 --require-approval never --profile movement-pass",
+    "destroy": "cdk destroy movement-pass-database-v1 --profile movement-pass && cdk destroy movement-pass-photos-v1 --profile movement-pass && cdk destroy movement-pass-jwt-v1 --profile movement-pass  && cdk destroy movement-pass-certificates-v1 --profile movement-pass && cdk destroy movement-pass-configuration-v1 --profile movement-pass"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-certificatemanager": "^1.119.0",
+    "@aws-cdk/aws-cloudfront": "^1.119.0",
+    "@aws-cdk/aws-dynamodb": "^1.119.0",
+    "@aws-cdk/aws-route53": "^1.119.0",
+    "@aws-cdk/aws-route53-targets": "^1.119.0",
+    "@aws-cdk/aws-s3": "^1.119.0",
+    "@aws-cdk/aws-ssm": "^1.119.0",
+    "@aws-cdk/core": "1.119.0",
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-github": "^4.2.0",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}
