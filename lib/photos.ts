@@ -1,6 +1,6 @@
 import { Construct, Duration, RemovalPolicy, StackProps } from '@aws-cdk/core';
 
-import { Bucket, HttpMethods } from '@aws-cdk/aws-s3';
+import { BlockPublicAccess, Bucket, HttpMethods } from '@aws-cdk/aws-s3';
 
 import { StringParameter } from '@aws-cdk/aws-ssm';
 
@@ -26,25 +26,24 @@ class Photos extends Base {
     super(scope, id, props);
 
     const subDomain = `photos.${this.domain}`;
+    const expiration = this.getContextValue<string>('photoUploadExpiration');
 
     const bucket = new Bucket(this, 'Bucket', {
       bucketName: subDomain,
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.RETAIN,
       cors: [
         {
           allowedHeaders: ['*'],
           allowedOrigins: ['*'],
-          allowedMethods: [HttpMethods.PUT, HttpMethods.GET],
-          maxAge: 1800
+          allowedMethods: [HttpMethods.PUT],
+          maxAge: Number(expiration)
         }
       ]
     });
 
     this.putParameterStoreValue('photoBucketName', subDomain);
-    this.putParameterStoreValue(
-      'photoUploadExpiration',
-      this.getContextValue<string>('photoUploadExpiration')
-    );
+    this.putParameterStoreValue('photoUploadExpiration', expiration);
 
     const certificateArn = StringParameter.valueForStringParameter(
       this,
