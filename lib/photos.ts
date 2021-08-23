@@ -20,7 +20,6 @@ import { ARecord, HostedZone, RecordTarget } from '@aws-cdk/aws-route53';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
 
 import { Base } from './base';
-import { BlockPublicAccess } from '@aws-cdk/aws-s3/lib/bucket';
 
 class Photos extends Base {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -30,7 +29,6 @@ class Photos extends Base {
 
     const bucket = new Bucket(this, 'Bucket', {
       bucketName: subDomain,
-      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.RETAIN,
       cors: [
         {
