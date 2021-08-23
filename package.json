@@ -5,10 +5,7 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write ./",
-    "lint": "eslint ./ --fix",
-    "bootstrap": "cdk bootstrap --profile movement-pass",
-    "deploy": "cdk deploy movement-pass-configuration-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-certificates-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-jwt-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-photos-v1 --require-approval never --profile movement-pass && cdk deploy movement-pass-database-v1 --require-approval never --profile movement-pass",
-    "destroy": "cdk destroy movement-pass-database-v1 --profile movement-pass && cdk destroy movement-pass-photos-v1 --profile movement-pass && cdk destroy movement-pass-jwt-v1 --profile movement-pass  && cdk destroy movement-pass-certificates-v1 --profile movement-pass && cdk destroy movement-pass-configuration-v1 --profile movement-pass"
+    "lint": "eslint ./ --fix"
   },
   "dependencies": {
     "@aws-cdk/aws-certificatemanager": "^1.119.0",
