@@ -30,7 +30,8 @@ abstract class Base extends Stack {
   protected getParameterStoreValue(name: string): string {
     return StringParameter.valueForStringParameter(
       this,
-      `${this.configRootKey}/${name}`);
+      `${this.configRootKey}/${name}`
+    );
   }
 
   protected putParameterStoreValue(name: string, value: string): void {

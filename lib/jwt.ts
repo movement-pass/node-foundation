@@ -11,9 +11,7 @@ class Jwt extends Base {
     const secret = randomBytes(64).toString('hex');
 
     this.putParameterStoreValue('jwtSecret', secret);
-    this.putParameterStoreValue(
-      'jwtExpire',
-      this.getContextValue('jwtExpire'));
+    this.putParameterStoreValue('jwtExpire', this.getContextValue('jwtExpire'));
   }
 }
 

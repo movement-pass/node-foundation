@@ -42,28 +42,21 @@ class Database extends Base {
       }
     };
 
-    create(
-      'applicants',
-      { name: 'id', type: AttributeType.STRING }
-    );
+    create('applicants', { name: 'id', type: AttributeType.STRING });
 
-    create(
-      'passes',
-      { name: 'id', type: AttributeType.STRING },
-      (table) => {
-        table.addGlobalSecondaryIndex({
-          indexName: 'ix_applicantId-endAt',
-          partitionKey: {
-            name: 'applicantId',
-            type: AttributeType.STRING
-          },
-          sortKey: {
-            name: 'endAt',
-            type: AttributeType.STRING
-          }
-        });
-      }
-    );
+    create('passes', { name: 'id', type: AttributeType.STRING }, (table) => {
+      table.addGlobalSecondaryIndex({
+        indexName: 'ix_applicantId-endAt',
+        partitionKey: {
+          name: 'applicantId',
+          type: AttributeType.STRING
+        },
+        sortKey: {
+          name: 'endAt',
+          type: AttributeType.STRING
+        }
+      });
+    });
   }
 }
 
