@@ -29,10 +29,14 @@ class Certificates extends Base {
       }
     );
 
-    this.putParameterStoreValue('clientCertificateArn', clientCertificate.certificateArn);
+    this.putParameterStoreValue(
+      'clientCertificateArn',
+      clientCertificate.certificateArn);
 
     if (this.region === 'us-east-1') {
-      this.putParameterStoreValue('serverCertificateArn', clientCertificate.certificateArn);
+      this.putParameterStoreValue(
+        'serverCertificateArn',
+        clientCertificate.certificateArn);
     } else {
       const serverCertificate = new Certificate(this, 'ServerCertificate', {
         domainName: this.domain,
