@@ -17,9 +17,6 @@ class Database extends Base {
     const create = (
       name: string,
       partitionKey: Attribute,
-      sortKey?: Attribute,
-      stream?: StreamViewType,
-      timeToLiveAttribute?: string,
       configure?: (t: Table) => void
     ): void => {
       const table = new Table(this, `${name}Table`, {
@@ -28,9 +25,7 @@ class Database extends Base {
         billingMode: BillingMode.PAY_PER_REQUEST,
         pointInTimeRecovery: true,
         partitionKey,
-        sortKey,
-        stream,
-        timeToLiveAttribute
+        stream: StreamViewType.NEW_IMAGE
       });
 
       if (configure) {
@@ -49,17 +44,12 @@ class Database extends Base {
 
     create(
       'applicants',
-      { name: 'id', type: AttributeType.STRING },
-      undefined,
-      StreamViewType.NEW_IMAGE
+      { name: 'id', type: AttributeType.STRING }
     );
 
     create(
       'passes',
       { name: 'id', type: AttributeType.STRING },
-      undefined,
-      StreamViewType.NEW_IMAGE,
-      undefined,
       (table) => {
         table.addGlobalSecondaryIndex({
           indexName: 'ix_applicantId-endAt',

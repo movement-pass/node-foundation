@@ -27,6 +27,12 @@ abstract class Base extends Stack {
     return this.node.tryGetContext(key) as T;
   }
 
+  protected getParameterStoreValue(name: string): string {
+    return StringParameter.valueForStringParameter(
+      this,
+      `${this.configRootKey}/${name}`);
+  }
+
   protected putParameterStoreValue(name: string, value: string): void {
     new StringParameter(this, `${name}Parameter`, {
       parameterName: `${this.configRootKey}/${name}`,

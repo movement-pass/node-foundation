@@ -1,10 +1,6 @@
 import { Construct, StackProps } from '@aws-cdk/core';
 
-import {
-  Certificate,
-  CertificateValidation,
-  DnsValidatedCertificate
-} from '@aws-cdk/aws-certificatemanager';
+import { DnsValidatedCertificate } from '@aws-cdk/aws-certificatemanager';
 
 import { HostedZone } from '@aws-cdk/aws-route53';
 
@@ -40,11 +36,15 @@ class Certificates extends Base {
         clientCertificate.certificateArn
       );
     } else {
-      const serverCertificate = new Certificate(this, 'ServerCertificate', {
-        domainName: this.domain,
-        subjectAlternativeNames: [`*.${this.domain}`],
-        validation: CertificateValidation.fromDns(zone)
-      });
+      const serverCertificate = new DnsValidatedCertificate(
+        this,
+        'ServerCertificate',
+        {
+          domainName: this.domain,
+          subjectAlternativeNames: [`*.${this.domain}`],
+          hostedZone: zone
+        }
+      );
 
       this.putParameterStoreValue(
         'serverCertificateArn',

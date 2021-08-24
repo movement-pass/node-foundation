@@ -2,8 +2,6 @@ import { Construct, Duration, RemovalPolicy, StackProps } from '@aws-cdk/core';
 
 import { BlockPublicAccess, Bucket, HttpMethods } from '@aws-cdk/aws-s3';
 
-import { StringParameter } from '@aws-cdk/aws-ssm';
-
 import { Certificate } from '@aws-cdk/aws-certificatemanager';
 
 import {
@@ -45,15 +43,10 @@ class Photos extends Base {
     this.putParameterStoreValue('photoBucketName', subDomain);
     this.putParameterStoreValue('photoUploadExpiration', expiration);
 
-    const certificateArn = StringParameter.valueForStringParameter(
-      this,
-      `${this.configRootKey}/clientCertificateArn`
-    );
-
     const certificate = Certificate.fromCertificateArn(
       this,
       'Certificate',
-      certificateArn
+      this.getParameterStoreValue('clientCertificateArn')
     );
 
     const accessIdentity = new OriginAccessIdentity(this, 'AccessIdentity', {
