@@ -31,7 +31,7 @@ class Photos extends Base {
     const expiration = this.getContextValue<string>('photoUploadExpiration');
 
     const bucket = new Bucket(this, 'Bucket', {
-      bucketName: subDomain,
+      bucketName: `${bucketNamePrefix}.${this.region}.${this.domain}`,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.RETAIN,
       cors: [
