@@ -54,7 +54,7 @@ class Photos extends Base {
     );
 
     const accessIdentity = new OriginAccessIdentity(this, 'AccessIdentity', {
-      comment: `${this.app}-photos-identity`
+      comment: `${this.app}-${subDomain}-identity`
     });
 
     const distribution = new CloudFrontWebDistribution(this, 'distribution', {
