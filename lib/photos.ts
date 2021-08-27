@@ -44,7 +44,7 @@ class Photos extends Base {
       ]
     });
 
-    this.putParameterStoreValue('photoBucketName', subDomain);
+    this.putParameterStoreValue('photoBucketName', bucket.bucketName);
     this.putParameterStoreValue('photoUploadExpiration', expiration);
 
     const certificate = Certificate.fromCertificateArn(
