@@ -23,7 +23,10 @@ class Photos extends Base {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const subDomain = `photos.${this.domain}`;
+    const bucketNamePrefix = this.getContextValue<string>(
+      'photoBucketNamePrefix');
+
+    const subDomain = `${bucketNamePrefix}.${this.domain}`;
     const expiration = this.getContextValue<string>('photoUploadExpiration');
 
     const bucket = new Bucket(this, 'Bucket', {

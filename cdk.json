@@ -19,6 +19,7 @@
     "version": "v1",
     "domain": "movement-pass.com",
     "jwtExpire": "1hour",
+    "photoBucketNamePrefix": "photos",
     "photoUploadExpiration": "300"
   }
 }
