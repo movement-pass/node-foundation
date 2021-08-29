@@ -1,6 +1,6 @@
 # node-foundation
 
-(For more information, [click here](https://github.com/movement-pass/movement-pass.github.io/blob/main/foundation.md))
+(For more information, [click here](https://movement-pass.github.io/foundation.html))
 
 In order run:
 
