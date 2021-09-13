@@ -19,7 +19,14 @@ const app = new App();
 const prefix = app.node.tryGetContext('app');
 const version = app.node.tryGetContext('version');
 
-for (const klass of [Configuration, Certificates, Jwt, Photos, Database, PassesLoadQueue]) {
+for (const klass of [
+  Configuration,
+  Certificates,
+  Jwt,
+  Photos,
+  Database,
+  PassesLoadQueue
+]) {
   const name = klass.name.toLowerCase();
 
   const fullName = `${prefix}-${name}-${version}`;
