@@ -56,6 +56,18 @@ class Database extends Base {
           type: AttributeType.STRING
         }
       });
+
+      table.addGlobalSecondaryIndex({
+        indexName: 'ix_applicantId-status',
+        partitionKey: {
+          name: 'applicantId',
+          type: AttributeType.STRING
+        },
+        sortKey: {
+          name: 'status',
+          type: AttributeType.STRING
+        }
+      });
     });
   }
 }
