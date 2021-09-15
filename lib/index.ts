@@ -7,7 +7,7 @@ import { Certificates } from './certificates';
 import { Jwt } from './jwt';
 import { Photos } from './photos';
 import { Database } from './database';
-import { PassesLoadQueue } from './passes-load-queue';
+import { PassesLoadStream } from './passes-load-stream';
 
 const env = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
@@ -25,7 +25,7 @@ for (const klass of [
   Jwt,
   Photos,
   Database,
-  PassesLoadQueue
+  PassesLoadStream
 ]) {
   const name = klass.name.toLowerCase();
 
