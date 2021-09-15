@@ -5,7 +5,7 @@ app="movement-pass"
 version="v1"
 
 # shellcheck disable=SC2039
-names=("configuration" "certificates" "jwt" "photos" "database")
+names=("configuration" "certificates" "jwt" "photos" "database" "passesloadqueue")
 
 cdk bootstrap --profile $profile
 

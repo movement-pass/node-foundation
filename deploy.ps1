@@ -2,7 +2,7 @@
 $app = "movement-pass"
 $version = "v1"
 
-$names = @("configuration", "certificates", "jwt", "photos", "database")
+$names = @("configuration", "certificates", "jwt", "photos", "database", "passesloadqueue")
 
 cdk bootstrap --profile $awsProfile
 
