@@ -11,7 +11,7 @@ class PassesLoadStream extends Base {
     new Stream(this, 'Stream', {
       streamName: `${this.app}_passes-load_${this.version}`,
       retentionPeriod: Duration.hours(24)
-    })
+    });
   }
 }
 
