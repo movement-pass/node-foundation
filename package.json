@@ -8,15 +8,15 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
-    "@aws-cdk/aws-certificatemanager": "^1.127.0",
-    "@aws-cdk/aws-cloudfront": "^1.127.0",
-    "@aws-cdk/aws-dynamodb": "^1.127.0",
-    "@aws-cdk/aws-kinesis": "^1.127.0",
-    "@aws-cdk/aws-route53": "^1.127.0",
-    "@aws-cdk/aws-route53-targets": "^1.127.0",
-    "@aws-cdk/aws-s3": "^1.127.0",
-    "@aws-cdk/aws-ssm": "^1.127.0",
-    "@aws-cdk/core": "1.127.0",
+    "@aws-cdk/aws-certificatemanager": "^1.128.0",
+    "@aws-cdk/aws-cloudfront": "^1.128.0",
+    "@aws-cdk/aws-dynamodb": "^1.128.0",
+    "@aws-cdk/aws-kinesis": "^1.128.0",
+    "@aws-cdk/aws-route53": "^1.128.0",
+    "@aws-cdk/aws-route53-targets": "^1.128.0",
+    "@aws-cdk/aws-s3": "^1.128.0",
+    "@aws-cdk/aws-ssm": "^1.128.0",
+    "@aws-cdk/core": "1.128.0",
     "source-map-support": "^0.5.20"
   },
   "devDependencies": {
