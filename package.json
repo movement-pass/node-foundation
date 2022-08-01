@@ -16,7 +16,7 @@
     "@aws-cdk/aws-s3": "^1.159.0",
     "@aws-cdk/aws-sqs": "^1.159.0",
     "@aws-cdk/aws-ssm": "^1.159.0",
-    "@aws-cdk/core": "^1.159.0",
+    "@aws-cdk/core": "^1.166.1",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
