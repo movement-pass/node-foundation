@@ -8,7 +8,7 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
-    "@aws-cdk/aws-certificatemanager": "^1.159.0",
+    "@aws-cdk/aws-certificatemanager": "^1.166.1",
     "@aws-cdk/aws-cloudfront": "^1.159.0",
     "@aws-cdk/aws-dynamodb": "^1.159.0",
     "@aws-cdk/aws-route53": "^1.159.0",
