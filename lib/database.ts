@@ -1,4 +1,5 @@
-import { Construct, RemovalPolicy, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { RemovalPolicy, StackProps } from 'aws-cdk-lib';
 
 import {
   Attribute,
@@ -6,7 +7,7 @@ import {
   BillingMode,
   StreamViewType,
   Table
-} from '@aws-cdk/aws-dynamodb';
+} from 'aws-cdk-lib/aws-dynamodb';
 
 import { Base } from './base';
 

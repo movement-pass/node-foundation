@@ -1,6 +1,6 @@
 import 'source-map-support/register';
 
-import { App } from '@aws-cdk/core';
+import { App } from 'aws-cdk-lib';
 
 import { Configuration } from './configuration';
 import { Certificates } from './certificates';

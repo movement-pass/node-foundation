@@ -1,6 +1,7 @@
-import { Construct, Duration, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { Duration, StackProps } from 'aws-cdk-lib';
 
-import { Stream } from '@aws-cdk/aws-kinesis';
+import { Stream } from 'aws-cdk-lib/aws-kinesis';
 
 import { Base } from './base';
 

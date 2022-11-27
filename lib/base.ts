@@ -1,6 +1,7 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { Stack, StackProps } from 'aws-cdk-lib';
 
-import { StringParameter } from '@aws-cdk/aws-ssm';
+import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 
 abstract class Base extends Stack {
   protected constructor(scope: Construct, id: string, props?: StackProps) {
