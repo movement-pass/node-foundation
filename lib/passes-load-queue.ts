@@ -1,10 +1,11 @@
-import { Construct, Duration, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { Duration, StackProps } from 'aws-cdk-lib';
 
 import {
   DeduplicationScope,
   FifoThroughputLimit,
   Queue
-} from '@aws-cdk/aws-sqs';
+} from 'aws-cdk-lib/aws-sqs';
 
 import { Base } from './base';
 

@@ -1,4 +1,6 @@
-import { Construct, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { StackProps } from 'aws-cdk-lib';
+
 import { Base } from './base';
 
 class Configuration extends Base {

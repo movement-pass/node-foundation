@@ -1,8 +1,9 @@
-import { Construct, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { StackProps } from 'aws-cdk-lib';
 
-import { DnsValidatedCertificate } from '@aws-cdk/aws-certificatemanager';
+import { DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
 
-import { HostedZone } from '@aws-cdk/aws-route53';
+import { HostedZone } from 'aws-cdk-lib/aws-route53';
 
 import { Base } from './base';
 
