@@ -11,14 +11,16 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 9,
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
   "plugins": ["prettier", "@typescript-eslint"],
+  "root": true,
   "rules": {
     "eslint-comments/no-use": "off",
     "filenames/match-regex": "off",
+    "import/no-commonjs": "off",
     "import/no-namespace": "off",
     "no-unused-vars": "off",
     "sort-imports": "off",
@@ -70,6 +72,5 @@
         "usePrettierrc": true
       }
     ]
-  },
-  "root": true
+  }
 }

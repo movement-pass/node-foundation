@@ -1,6 +1,6 @@
 import 'source-map-support/register';
 
-import { App } from '@aws-cdk/core';
+import { App } from 'aws-cdk-lib';
 
 import { Configuration } from './configuration';
 import { Certificates } from './certificates';
@@ -18,13 +18,7 @@ const app = new App();
 const prefix = app.node.tryGetContext('app');
 const version = app.node.tryGetContext('version');
 
-for (const klass of [
-  Configuration,
-  Certificates,
-  Jwt,
-  Photos,
-  Database
-]) {
+for (const klass of [Configuration, Certificates, Jwt, Photos, Database]) {
   const name = klass.name.toLowerCase();
 
   const fullName = `${prefix}-${name}-${version}`;
