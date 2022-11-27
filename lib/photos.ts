@@ -1,8 +1,9 @@
-import { Construct, Duration, RemovalPolicy, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { Duration, RemovalPolicy, StackProps } from 'aws-cdk-lib';
 
-import { BlockPublicAccess, Bucket, HttpMethods } from '@aws-cdk/aws-s3';
+import { BlockPublicAccess, Bucket, HttpMethods } from 'aws-cdk-lib/aws-s3';
 
-import { Certificate } from '@aws-cdk/aws-certificatemanager';
+import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 import {
   CloudFrontWebDistribution,
@@ -12,10 +13,10 @@ import {
   SSLMethod,
   ViewerCertificate,
   ViewerProtocolPolicy
-} from '@aws-cdk/aws-cloudfront';
+} from 'aws-cdk-lib/aws-cloudfront';
 
-import { ARecord, HostedZone, RecordTarget } from '@aws-cdk/aws-route53';
-import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
+import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 
 import { Base } from './base';
 
