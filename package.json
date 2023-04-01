@@ -8,7 +8,7 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.67.0",
+    "aws-cdk-lib": "^2.72.1",
     "constructs": "^10.1.267",
     "source-map-support": "^0.5.21"
   },
