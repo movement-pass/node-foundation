@@ -8,19 +8,19 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.67.0",
-    "constructs": "^10.1.267",
+    "aws-cdk-lib": "^2.73.0",
+    "constructs": "^10.1.304",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "@types/node": "^18.14.6",
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.54.0",
-    "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-github": "^4.6.1",
-    "prettier": "^2.8.4",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-github": "^4.7.0",
+    "prettier": "^2.8.7",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.3"
   }
 }
