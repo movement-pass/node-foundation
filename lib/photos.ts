@@ -7,8 +7,10 @@ import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 import {
   CloudFrontWebDistribution,
+  KeyGroup,
   OriginAccessIdentity,
   PriceClass,
+  PublicKey,
   SecurityPolicyProtocol,
   SSLMethod,
   ViewerCertificate,
@@ -23,6 +25,15 @@ import { Base } from './base';
 class Photos extends Base {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
+    this.putParameterStoreValue(
+      'photoUrlPrivateKey',
+      '<PUT YOUR PHOTO URL PRIVATE KEY>'
+    );
+
+    this.putParameterStoreValue(
+      'photoUrlPublicKey',
+      '<PUT YOUR PHOTO URL PUBLIC KEY>'
+    );
 
     const bucketNamePrefix = this.getContextValue<string>(
       'photoBucketNamePrefix'
@@ -58,6 +69,17 @@ class Photos extends Base {
       comment: `${this.app}-${subDomain}-identity`
     });
 
+    const publicKey = new PublicKey(this, 'photoUrlPublicKey', {
+      publicKeyName: 'photoUrlPublicKey',
+      encodedKey: this.getParameterStoreValue('photoUrlPublicKey')
+    });
+    this.putParameterStoreValue('photoUrlKeyPairId', publicKey.publicKeyId);
+
+    const keyGroup = new KeyGroup(this, 'photoUrlKeyGroup', {
+      keyGroupName: 'photoUrlKeyGroup',
+      items: [publicKey]
+    });
+
     const distribution = new CloudFrontWebDistribution(this, 'distribution', {
       priceClass: PriceClass.PRICE_CLASS_ALL,
       viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -76,7 +98,8 @@ class Photos extends Base {
             {
               isDefaultBehavior: true,
               defaultTtl: Duration.minutes(5),
-              maxTtl: Duration.minutes(5)
+              maxTtl: Duration.minutes(5),
+              trustedKeyGroups: [keyGroup]
             }
           ]
         }
